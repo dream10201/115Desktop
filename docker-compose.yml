@@ -1,0 +1,20 @@
+services:
+  115desktop:
+    image: ghcr.io/dream10201/115desktop:latest
+    container_name: 115desktop
+    restart: unless-stopped
+    network_mode: host
+    security_opt:
+      - seccomp:unconfined
+    shm_size: 1gb
+    user: "0:0"
+    environment:
+      PASSWORD: "123456"
+      AUTO_START: "true"
+      DISPLAY_WIDTH: "1920"
+      DISPLAY_HEIGHT: "1080"
+      TZ: "Asia/Shanghai"
+      LC_ALL: "zh_CN.UTF-8"
+    volumes:
+      - /path/to/115:/etc/115
+      - /path/to/download:/opt/Downloads
