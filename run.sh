@@ -16,6 +16,7 @@ eval "$(dbus-launch --sh-syntax)"
 echo -n "" | gnome-keyring-daemon --unlock --components=secrets >/dev/null 2>&1
 
 echo "geometry=${DISPLAY_WIDTH}x${DISPLAY_HEIGHT}" > "${HOME}/.vnc/config"
+echo "SendPrimary=0" >> "${HOME}/.vnc/config"
 
 if [ -n "${PASSWORD}" ]; then
     export PASSWD_PATH="${HOME}/.vnc/passwd"
